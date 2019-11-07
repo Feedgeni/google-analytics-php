@@ -1,9 +1,13 @@
 {
     "name": "kudobuzz/google-analytics-php",
-    "type": "library",
     "description": "Kudobuzz Google Analytics Is A PHP Library For Making Google Analytics And OAuth Requests",
     "keywords": ["google", "analytics", "oauth", "oauth2"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "kudobuzz"
+        }
+    ],
     "require":{
         "illuminate/support": "5.*",
         "google/apiclient" : "^2.0",
@@ -11,12 +15,9 @@
         "vlucas/phpdotenv": "2.*",
         "cache/filesystem-adapter": "^1.0@dev"
     },
-    "require-dev": {
-    },
     "autoload": {
         "psr-4": {
             "Kudobuzz\\": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
