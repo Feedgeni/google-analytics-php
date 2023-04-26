@@ -1,11 +1,11 @@
 {
-    "name": "kudobuzz/google-analytics-php",
-    "description": "Kudobuzz Google Analytics Is A PHP Library For Making Google Analytics And OAuth Requests",
+    "name": "feedgeni/google-analytics-php",
+    "description": "FeedGeni Google Analytics Is A PHP Library For Making Google Analytics And OAuth Requests",
     "keywords": ["google", "analytics", "oauth", "oauth2"],
     "license": "MIT",
     "authors": [
         {
-            "name": "kudobuzz"
+            "name": "FeedGeni"
         }
     ],
     "require":{
