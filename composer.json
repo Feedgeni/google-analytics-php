@@ -9,9 +9,9 @@
         }
     ],
     "require":{
-        "illuminate/support": "5.*",
+        "illuminate/support": "6.*",
         "google/apiclient" : "^2.0",
-        "nesbot/carbon": "^1.22",
+        "nesbot/carbon": "2.*",
         "vlucas/phpdotenv": "3.*",
         "cache/filesystem-adapter": "^1.0@dev"
     },
