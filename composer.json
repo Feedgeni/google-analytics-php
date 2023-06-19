@@ -12,7 +12,7 @@
         "illuminate/support": "8.*",
         "google/apiclient" : "^2.0",
         "nesbot/carbon": "2.*",
-        "vlucas/phpdotenv": "5.4.1",
+        "vlucas/phpdotenv": "4.*",
         "cache/filesystem-adapter": "^1.0@dev"
     },
     "autoload": {
