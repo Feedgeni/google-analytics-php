@@ -33,7 +33,7 @@ class AnalyticsClient
         //$dirSeparator = DIRECTORY_SEPARATOR; 
 
         $filesystemAdapter = new Local(__DIR__.'/');
-        
+
         $filesystem = new Filesystem( $filesystemAdapter );
 
         $this->cache = new FilesystemCachePool( $filesystem );

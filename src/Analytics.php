@@ -79,14 +79,12 @@ class Analytics
             ['dimensions' => 'ga:date,ga:pageTitle']
         );
 
-        return collect($response['rows'] ?? [])->map(function (array $dateRow) {
-            return [
-                'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
-                'pageTitle' => $dateRow[1],
-                'visitors' => (int) $dateRow[2],
-                'pageViews' => (int) $dateRow[3],
-            ];
-        });
+        return collect($response['rows'] ?? [])->map(fn(array $dateRow) => [
+            'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
+            'pageTitle' => $dateRow[1],
+            'visitors' => (int) $dateRow[2],
+            'pageViews' => (int) $dateRow[3],
+        ]);
     }
 
     public function fetchTotalVisitorsAndPageViews($startDate, $endDate): Collection
@@ -99,13 +97,11 @@ class Analytics
             ['dimensions' => 'ga:date']
         );
 
-        return collect($response['rows'] ?? [])->map(function (array $dateRow) {
-            return [
-                'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
-                'visitors' => (int) $dateRow[1],
-                'pageViews' => (int) $dateRow[2],
-            ];
-        });
+        return collect($response['rows'] ?? [])->map(fn(array $dateRow) => [
+            'date' => Carbon::createFromFormat('Ymd', $dateRow[0]),
+            'visitors' => (int) $dateRow[1],
+            'pageViews' => (int) $dateRow[2],
+        ]);
     }
 
     public function fetchMostVisitedPages($startDate, $endDate, int $maxResults = 20): Collection
@@ -123,13 +119,11 @@ class Analytics
         );
 
         return collect($response['rows'] ?? [])
-            ->map(function (array $pageRow) {
-                return [
-                    'url' => $pageRow[0],
-                    'pageTitle' => $pageRow[1],
-                    'pageViews' => (int) $pageRow[2],
-                ];
-            });
+            ->map(fn(array $pageRow) => [
+                'url' => $pageRow[0],
+                'pageTitle' => $pageRow[1],
+                'pageViews' => (int) $pageRow[2],
+            ]);
     }
 
     public function fetchTopReferrers($startDate, $endDate, int $maxResults = 20): Collection
@@ -145,12 +139,10 @@ class Analytics
             ]
         );
 
-        return collect($response['rows'] ?? [])->map(function (array $pageRow) {
-            return [
-                'url' => $pageRow[0],
-                'pageViews' => (int) $pageRow[1],
-            ];
-        });
+        return collect($response['rows'] ?? [])->map(fn(array $pageRow) => [
+            'url' => $pageRow[0],
+            'pageViews' => (int) $pageRow[1],
+        ]);
     }
 
     public function fetchTopBrowsers($startDate, $endDate, int $maxResults = 10): Collection
@@ -166,12 +158,10 @@ class Analytics
             ]
         );
 
-        $topBrowsers = collect($response['rows'] ?? [])->map(function (array $browserRow) {
-            return [
-                'browser' => $browserRow[0],
-                'sessions' => (int) $browserRow[1],
-            ];
-        });
+        $topBrowsers = collect($response['rows'] ?? [])->map(fn(array $browserRow) => [
+            'browser' => $browserRow[0],
+            'sessions' => (int) $browserRow[1],
+        ]);
 
         if ($topBrowsers->count() <= $maxResults) {
             return $topBrowsers;

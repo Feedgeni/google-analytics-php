@@ -80,11 +80,11 @@ class GoogleOAuth implements OAuthInterface
         return $httpClient->get( $url );
     }
 
-    public function makeJsonRequest($method = 'GET',string $url, $body = [],array $headers = [],bool $verify = false, bool $http_errors = false)
+    public function makeJsonRequest(string $url, $method = 'GET', $body = [],array $headers = [],bool $verify = false, bool $http_errors = false)
     {
         $client = $this->client->authorize();
 
-        return $client->request( strtoupper($method) , $url, [
+        return $client->request( strtoupper((string) $method) , $url, [
             'headers' => $headers, 
             'json' => $body, 
             'verify' => $verify,
