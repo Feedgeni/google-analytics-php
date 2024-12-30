@@ -8,6 +8,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Google_Client;
 
+// NOTE: We're removing "cache/filesystem-adapter": "^1.0" from the composer.json for PHP 8.x / Laravel 9.x
+// support in API Gateway. Since we don't use any of these classes in the API Gateway, we can safely remove
+// but know that if we use them, this will all bomb
 class Analytics
 {
     use Macroable;
