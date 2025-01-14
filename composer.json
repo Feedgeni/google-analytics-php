@@ -9,7 +9,7 @@
         }
     ],
     "require":{
-        "illuminate/support": "^9.0",
+        "illuminate/support": "^10.0",
         "google/apiclient" : "^2.0",
         "nesbot/carbon": "^2.0",
         "vlucas/phpdotenv": "5.4.1"
